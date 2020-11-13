@@ -18,10 +18,10 @@ class Users extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email');
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->timestamp('last_logged_in')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            
+
             $table->timestamps();
     
  });
@@ -33,8 +33,8 @@ class Users extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+public function down()
+    {    
         //
         Schema::dropIfExists('users');
     }
